@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Top Anime | AnimeKu</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+
+<div class="logo">
+
+<i class="fa-solid fa-dragon"></i>
+
+AnimeKu
+
+</div>
+
+<ul>
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="topanime.html">Top Anime</a></li>
+
+<li><a href="genre.html">Genre</a></li>
+
+<li><a href="about.html">About</a></li>
+
+<li><a href="contact.html">Contact</a></li>
+
+</ul>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-text">
+
+<h1>
+
+🔥 Top Anime
+
+</h1>
+
+<p>
+
+Daftar anime terbaik berdasarkan
+Jikan API.
+
+</p>
+
+</div>
+
+</section>
+
+<!-- CONTENT -->
+
+<section class="hasil">
+
+<h2>
+
+Top Anime
+
+</h2>
+
+<div id="anime-container">
+
+<div class="loading">
+
+<div class="spinner"></div>
+
+<p>
+
+Mengambil data anime...
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<div class="footer-content">
+
+<div>
+
+<h3>
+
+AnimeKu
+
+</h3>
+
+<p>
+
+Website pencarian anime menggunakan
+Jikan API.
+
+</p>
+
+</div>
+
+<div>
+
+<h3>
+
+Developer
+
+</h3>
+
+<p>
+
+Deva Yohand Pangestu
+
+</p>
+
+</div>
+
+</div>
+
+<hr>
+
+<p class="copyright">
+
+© 2026 AnimeKu
+
+</p>
+
+</footer>
+
+<script>
+
+const container=document.getElementById("anime-container");
+
+fetch("https://api.jikan.moe/v4/top/anime?limit=24")
+
+.then(response=>response.json())
+
+.then(result=>{
+
+let html="";
+
+result.data.forEach(anime=>{
+
+let synopsis=anime.synopsis ?? "";
+
+if(synopsis.length>150){
+
+synopsis=synopsis.substring(0,150)+"...";
+
+}
+
+html+=`
+<div class="anime-card">
+
+<div class="anime-image">
+
+<img
+src="${anime.images.jpg.large_image_url}"
+alt="${anime.title}">
+
+</div>
+
+<div class="anime-body">
+
+<h2>
+
+${anime.title}
+
+</h2>
+
+<div class="rating">
+
+⭐ ${anime.score ?? "-"}
+
+</div>
+
+<div class="info">
+
+<span>
+
+🎬 ${anime.episodes ?? "-" } Episode
+
+</span>
+
+<span>
+
+📅 ${anime.year ?? "-"}
+
+</span>
+
+</div>
+
+<div class="badge">
+
+<span>
+
+${anime.type ?? "-"}
+
+</span>
+
+<span>
+
+${anime.status ?? "-"}
+
+</span>
+
+</div>
+
+<p>
+
+${synopsis}
+
+</p>
+
+<div class="button-group">
+
+<a
+
+href="detail.html?id=${anime.mal_id}"
+
+class="btn-detail">
+
+<i class="fa-solid fa-circle-info"></i>
+
+Lihat Detail
+
+</a>
+
+<a
+
+href="${anime.url}"
+
+target="_blank"
+
+class="btn-mal">
+
+<i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+MyAnimeList
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+container.innerHTML=html;
+
+})
+
+.catch(error=>{
+
+console.log(error);
+
+container.innerHTML=`
+
+<div class="error">
+
+<h2>
+
+Gagal Mengambil Data
+
+</h2>
+
+<p>
+
+Tidak dapat mengambil data dari Jikan API.
+
+Silakan coba lagi beberapa saat.
+
+</p>
+
+</div>
+
+`;
+
+});
+
+</script>
+
+</body>
+
+</html>

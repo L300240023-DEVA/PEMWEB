@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Detail Anime | AnimeKu</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav>
+
+<div class="logo">
+
+<i class="fa-solid fa-dragon"></i>
+
+AnimeKu
+
+</div>
+
+<ul>
+
+<li><a href="index.HTML">Home</a></li>
+
+<li><a href="topanime.HTML">Top Anime</a></li>
+
+<li><a href="genre.HTML">Genre</a></li>
+
+<li><a href="about.HTML">About</a></li>
+
+<li><a href="contact.HTML">Contact</a></li>
+
+</ul>
+
+</nav>
+
+<!-- ================= DETAIL ================= -->
+
+<section class="hasil">
+
+<h2>
+
+Detail Anime
+
+</h2>
+
+<div id="detail-container">
+
+<div class="loading">
+
+<div class="spinner"></div>
+
+<p>
+
+Mengambil data anime...
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<div class="footer-content">
+
+<div>
+
+<h3>
+
+AnimeKu
+
+</h3>
+
+<p>
+
+Website pencarian anime menggunakan
+Jikan API.
+
+</p>
+
+</div>
+
+<div>
+
+<h3>
+
+Menu
+
+</h3>
+
+<ul>
+
+<li><a href="index.HTML">Home</a></li>
+
+<li><a href="topanime.HTML">Top Anime</a></li>
+
+<li><a href="genre.HTML">Genre</a></li>
+
+<li><a href="about.HTML">About</a></li>
+
+<li><a href="contact.HTML">Contact</a></li>
+
+</ul>
+
+</div>
+
+<div>
+
+<h3>
+
+Developer
+
+</h3>
+
+<p>
+
+Deva Yohand Pangestu
+
+</p>
+
+<p>
+
+Universitas Muhammadiyah Surakarta
+
+</p>
+
+</div>
+
+</div>
+
+<hr>
+
+<p class="copyright">
+
+© 2026 AnimeKu
+
+</p>
+
+</footer>
+
+<script>
+
+const params = new URLSearchParams(window.location.search);
+
+const id = params.get("id");
+
+const container = document.getElementById("detail-container");
+
+if(!id){
+
+container.innerHTML=`
+
+<div class="error">
+
+<h2>
+
+Anime Tidak Ditemukan
+
+</h2>
+
+<p>
+
+ID Anime tidak tersedia.
+
+</p>
+
+<a
+
+href="index.HTML"
+
+class="btn-detail">
+
+Kembali
+
+</a>
+
+</div>
+
+`;
+
+throw new Error("ID tidak ditemukan");
+
+}
+
+fetch("https://api.jikan.moe/v4/anime/"+id)
+
+.then(response=>response.json())
+
+.then(result=>{
+
+const anime=result.data;
+
+container.innerHTML=`
+
+<div class="detail-card">
+
+<div class="poster">
+
+<img
+
+src="${anime.images.jpg.large_image_url}"
+
+alt="${anime.title}">
+
+</div>
+
+<div class="info">
+
+<h1>
+
+${anime.title}
+
+</h1>
+<div class="badge">
+
+<span>
+
+⭐ ${anime.score ?? "-"}
+
+</span>
+
+<span>
+
+🎬 ${anime.episodes ?? "-" } Episode
+
+</span>
+
+<span>
+
+${anime.status ?? "-"}
+
+</span>
+
+<span>
+
+${anime.type ?? "-"}
+
+</span>
+
+</div>
+
+<table>
+
+<tr>
+
+<td><strong>Judul Jepang</strong></td>
+
+<td>${anime.title_japanese ?? "-"}</td>
+
+</tr>
+
+<tr>
+
+<td><strong>Rating</strong></td>
+
+<td>${anime.rating ?? "-"}</td>
+
+</tr>
+
+<tr>
+
+<td><strong>Durasi</strong></td>
+
+<td>${anime.duration ?? "-"}</td>
+
+</tr>
+
+<tr>
+
+<td><strong>Source</strong></td>
+
+<td>${anime.source ?? "-"}</td>
+
+</tr>
+
+<tr>
+
+<td><strong>Season</strong></td>
+
+<td>
+
+${anime.season ?? "-"}
+
+${anime.year ?? ""}
+
+</td>
+
+</tr>
+
+<tr>
+
+<td><strong>Rank</strong></td>
+
+<td>
+
+#${anime.rank ?? "-"}
+
+</td>
+
+</tr>
+
+<tr>
+
+<td><strong>Popularity</strong></td>
+
+<td>
+
+#${anime.popularity ?? "-"}
+
+</td>
+
+</tr>
+
+<tr>
+
+<td><strong>Members</strong></td>
+
+<td>
+
+${anime.members
+? anime.members.toLocaleString()
+: "-"}
+
+</td>
+
+</tr>
+
+<tr>
+
+<td><strong>Studio</strong></td>
+
+<td>
+
+${anime.studios.length
+
+?
+
+anime.studios.map(studio=>studio.name).join(", ")
+
+:
+
+"-"
+
+}
+
+</td>
+
+</tr>
+
+<tr>
+
+<td><strong>Genre</strong></td>
+
+<td>
+
+${anime.genres.length
+
+?
+
+anime.genres.map(genre=>`
+
+<span class="badge">
+
+${genre.name}
+
+</span>
+
+`).join("")
+
+:
+
+"-"
+
+}
+
+</td>
+
+</tr>
+
+</table>
+
+<div class="synopsis">
+
+<h2>
+
+Sinopsis
+
+</h2>
+
+<p>
+
+${anime.synopsis ?? "Sinopsis tidak tersedia."}
+
+</p>
+
+</div>
+<div class="button-group">
+
+<a
+
+href="index.HTML"
+
+class="btn-detail">
+
+<i class="fa-solid fa-arrow-left"></i>
+
+Kembali
+
+</a>
+
+<a
+
+href="${anime.url}"
+
+target="_blank"
+
+class="btn-mal">
+
+<i class="fa-solid fa-up-right-from-square"></i>
+
+MyAnimeList
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+${anime.trailer && anime.trailer.embed_url ? `
+
+<div class="trailer">
+
+<h2>
+
+Trailer Anime
+
+</h2>
+
+<iframe
+
+src="${anime.trailer.embed_url}"
+
+allowfullscreen>
+
+</iframe>
+
+</div>
+
+` : ""}
+
+`;
+
+})
+
+.catch(error=>{
+
+console.log(error);
+
+container.innerHTML=`
+
+<div class="error">
+
+<h2>
+
+Gagal Mengambil Data Anime
+
+</h2>
+
+<p>
+
+Terjadi kesalahan saat mengambil data dari Jikan API.
+
+Silakan coba lagi beberapa saat.
+
+</p>
+
+<a
+
+href="index.HTML"
+
+class="btn-detail">
+
+<i class="fa-solid fa-arrow-left"></i>
+
+Kembali ke Home
+
+</a>
+
+</div>
+
+`;
+
+});
+
+</script>
+
+</body>
+
+</html>
