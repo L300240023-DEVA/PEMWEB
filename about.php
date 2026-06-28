@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Tentang AnimeKu</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+
+<div class="logo">
+
+<i class="fa-solid fa-dragon"></i>
+
+AnimeKu
+
+</div>
+
+<ul>
+
+<li><a href="index.php">Home</a></li>
+
+<li><a href="topanime.php">Top Anime</a></li>
+
+<li><a href="genre.php">Genre</a></li>
+
+<li><a href="about.php">About</a></li>
+
+<li><a href="contact.php">Contact</a></li>
+
+</ul>
+
+</nav>
+
+<div class="about-container">
+
+<div class="title">
+
+<h1>Tentang AnimeKu</h1>
+
+<p>
+
+Website informasi anime berbasis API.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>
+
+<i class="fa-solid fa-circle-info"></i>
+
+Apa itu AnimeKu?
+
+</h2>
+
+<p>
+
+AnimeKu merupakan website pencarian informasi anime
+yang memanfaatkan <b>Jikan API</b>.
+Website ini memungkinkan pengguna mencari anime,
+melihat detail anime,
+melihat anime populer,
+serta mencari anime berdasarkan genre.
+
+Seluruh data yang ditampilkan berasal dari API,
+sehingga informasi selalu mengikuti data terbaru.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>
+
+<i class="fa-solid fa-star"></i>
+
+Fitur Website
+
+</h2>
+
+<div class="feature-grid">
+
+<div class="feature">
+
+<i class="fa-solid fa-magnifying-glass"></i>
+
+<h3>Pencarian Anime</h3>
+
+<p>
+
+Cari anime berdasarkan judul.
+
+</p>
+
+</div>
+
+<div class="feature">
+
+<i class="fa-solid fa-ranking-star"></i>
+
+<h3>Top Anime</h3>
+
+<p>
+
+Menampilkan anime dengan rating tertinggi.
+
+</p>
+
+</div>
+
+<div class="feature">
+
+<i class="fa-solid fa-tags"></i>
+
+<h3>Genre Anime</h3>
+
+<p>
+
+Anime berdasarkan kategori genre.
+
+</p>
+
+</div>
+
+<div class="feature">
+
+<i class="fa-solid fa-book-open"></i>
+
+<h3>Detail Anime</h3>
+
+<p>
+
+Menampilkan informasi lengkap anime.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>
+
+<i class="fa-solid fa-code"></i>
+
+Teknologi
+
+</h2>
+
+<div class="tech">
+
+<span>PHP</span>
+
+<span>HTML5</span>
+
+<span>CSS3</span>
+
+<span>JavaScript</span>
+
+<span>Fetch API</span>
+
+<span>Jikan API</span>
+
+<span>Font Awesome</span>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<div class="profile">
+
+<img src="https://ui-avatars.com/api/?name=Deva+Yohand+Pangestu&background=ff9800&color=fff&size=300">
+
+<div class="profile-info">
+
+<h2>
+
+Deva Yohand Pangestu
+
+</h2>
+
+<p>
+
+Mahasiswa Sistem Informasi
+yang mengembangkan website
+AnimeKu sebagai tugas mata kuliah
+pemrograman web menggunakan API.
+
+Website ini dibangun untuk memanfaatkan
+REST API sehingga data anime
+dapat ditampilkan secara dinamis.
+
+</p>
+
+<table>
+
+<tr>
+
+<td><b>Nama</b></td>
+
+<td>: Deva Yohand Pangestu</td>
+
+</tr>
+
+<tr>
+
+<td><b>Program Studi</b></td>
+
+<td>: Sistem Informasi</td>
+
+</tr>
+
+<tr>
+
+<td><b>Project</b></td>
+
+<td>: AnimeKu</td>
+
+</tr>
+
+<tr>
+
+<td><b>API</b></td>
+
+<td>: Jikan API</td>
+
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>
+
+<i class="fa-solid fa-heart"></i>
+
+Tujuan Website
+
+</h2>
+
+<p>
+
+Website ini dibuat sebagai media pembelajaran
+dalam implementasi API pada website.
+
+Selain itu,
+website ini bertujuan memberikan
+informasi anime secara cepat,
+lengkap,
+dan mudah diakses oleh pengguna.
+
+</p>
+
+</div>
+
+</div>
+
+<footer>
+
+<p>
+
+© 2026 AnimeKu
+
+</p>
+
+<p>
+
+Powered by Jikan API
+
+</p>
+
+</footer>
+
+</body>
+
+</html>

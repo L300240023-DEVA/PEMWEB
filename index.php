@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AnimeKu - Website Informasi Anime</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav>
+
+    <div class="logo">
+        <i class="fa-solid fa-dragon"></i>
+        AnimeKu
+    </div>
+
+    <ul>
+
+        <li><a href="index.php">Home</a></li>
+
+        <li><a href="topanime.php">Top Anime</a></li>
+
+        <li><a href="genre.php">Genre</a></li>
+
+        <li><a href="about.php">About</a></li>
+
+        <li><a href="contact.php">Contact</a></li>
+
+    </ul>
+
+</nav>
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <div class="hero-text">
+
+        <h1>Temukan Anime Favoritmu</h1>
+
+        <p>
+
+            Cari ribuan anime secara gratis menggunakan
+            <strong>Jikan API</strong>.
+
+        </p>
+
+        <div class="search-box">
+
+            <input
+            type="text"
+            id="search"
+            placeholder="Masukkan Judul Anime">
+
+            <button onclick="searchAnime()">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                Cari
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= CATEGORY ================= -->
+
+<section class="kategori">
+
+<h2>Kategori Populer</h2>
+
+<div class="category-list">
+
+<button onclick="quickSearch('Naruto')">
+Naruto
+</button>
+
+<button onclick="quickSearch('One Piece')">
+One Piece
+</button>
+
+<button onclick="quickSearch('Bleach')">
+Bleach
+</button>
+
+<button onclick="quickSearch('Attack on Titan')">
+Attack on Titan
+</button>
+
+<button onclick="quickSearch('Demon Slayer')">
+Demon Slayer
+</button>
+
+<button onclick="quickSearch('Jujutsu Kaisen')">
+Jujutsu Kaisen
+</button>
+
+<button onclick="quickSearch('Dragon Ball')">
+Dragon Ball
+</button>
+
+<button onclick="quickSearch('Spy x Family')">
+Spy x Family
+</button>
+
+</div>
+
+</section>
+
+<!-- ================= LOADING ================= -->
+
+<div id="loading" class="loading">
+
+<div class="spinner"></div>
+
+<p>Mengambil data anime...</p>
+
+</div>
+
+<!-- ================= HASIL ================= -->
+
+<section class="hasil">
+
+<h2>
+
+Hasil Pencarian
+
+</h2>
+
+<div id="anime-container">
+
+<div class="welcome">
+
+<i class="fa-solid fa-tv"></i>
+
+<h3>
+
+Selamat Datang di AnimeKu
+
+</h3>
+
+<p>
+
+Silakan cari anime favoritmu menggunakan kolom pencarian di atas.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<div class="footer-content">
+
+<div>
+
+<h3>AnimeKu</h3>
+
+<p>
+
+Website pencarian anime menggunakan
+Jikan API.
+
+</p>
+
+</div>
+
+<div>
+
+<h3>Menu</h3>
+
+<ul>
+
+<li><a href="index.php">Home</a></li>
+
+<li><a href="topanime.php">Top Anime</a></li>
+
+<li><a href="genre.php">Genre</a></li>
+
+<li><a href="about.php">About</a></li>
+
+<li><a href="contact.php">Contact</a></li>
+
+</ul>
+
+</div>
+
+<div>
+
+<h3>Developer</h3>
+
+<p>
+
+Nama :
+Deva Yohand Pangestu
+
+</p>
+
+<p>
+
+Universitas Muhammadiyah Surakarta
+
+</p>
+
+</div>
+
+</div>
+
+<hr>
+
+<p class="copyright">
+
+© 2026 AnimeKu.
+All Rights Reserved.
+
+</p>
+
+</footer>
+
+<!-- ================= SCRIPT ================= -->
+
+<script src="js/script.js"></script>
+
+<script>
+
+document.getElementById("search")
+.addEventListener("keypress",function(event){
+
+if(event.key==="Enter"){
+
+searchAnime();
+
+}
+
+});
+
+function quickSearch(keyword){
+
+document.getElementById("search").value=keyword;
+
+searchAnime();
+
+}
+
+</script>
+
+</body>
+</html>
